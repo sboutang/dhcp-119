@@ -36,9 +36,8 @@ def format_as_cisco(hex_string):
 
 def format_as_systemd(hex_string):
     byte_array = bytearray.fromhex(hex_string)
-    first_number = byte_array[0]
-    decoded_text = f"\\x{first_number:02x}"
-    for byte in byte_array[1:]:
+    decoded_text = ""
+    for byte in byte_array[0:]:
         if byte < 32 or byte == 127:
             decoded_text += f'\\x{byte:02x}'
         else:
