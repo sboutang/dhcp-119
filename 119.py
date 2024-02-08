@@ -38,7 +38,7 @@ def format_as_systemd(hex_string):
     byte_array = bytearray.fromhex(hex_string)
     decoded_text = ""
     for byte in byte_array[0:]:
-        if byte < 32 or byte == 127:
+        if byte in range(0,45) or byte == 192:
             decoded_text += f'\\x{byte:02x}'
         else:
             try:
